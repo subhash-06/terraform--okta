@@ -20,9 +20,11 @@ resource "okta_group" "groups" {
 }
 
 
-resource "okta_app_group_assignment" "terraform" {
-  for_each = okta_group.groups
 
-  app_id   = okta_app_oauth.terraform-okta-create.id
-  group_id = each.value.id
+resource "okta_app_group_assignment" "assignments" {
+  for_each = toset(var.enabled_groups)
+
+  app_id   = okta_app_oauth.terraform_okta.id
+  group_id = okta_group.groups[each.key].id
 }
+
