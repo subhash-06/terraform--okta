@@ -1,5 +1,5 @@
 # oauth app creation
-resource "okta_app_oauth" "terraform-okta-create" {
+resource "okta_app_oauth" "terraform_okta" {
   label          = "terraform-okta-1"
   type           = "web"
   grant_types    = ["authorization_code"]
