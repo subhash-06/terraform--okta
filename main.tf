@@ -9,9 +9,14 @@ resource "okta_app_oauth" "terraform-okta-create" {
   
 }
 
-resource "okta_group" "terraform-okta-group-create" {
-  name        = "terraform-okta-group-1"
-  description = "group"
+resource "okta_group" "groups" {
+  for_each = {
+    admin = "terraform-okta-admin"
+    user  = "terraform-okta-user"
+  }
+
+  name        = each.value
+  description = "Group for ${each.key}"
 }
 
 resource "okta_app_group_assignment" "terraform" {
