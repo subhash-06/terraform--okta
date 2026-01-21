@@ -19,8 +19,10 @@ resource "okta_group" "groups" {
   description = "Group for ${each.key}"
 }
 
+
 resource "okta_app_group_assignment" "terraform" {
+  for_each = okta_group.groups
+
   app_id   = okta_app_oauth.terraform-okta-create.id
-  group_id = okta_group.groups.id
-  
+  group_id = each.value.id
 }
