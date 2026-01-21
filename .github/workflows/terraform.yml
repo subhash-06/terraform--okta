@@ -23,15 +23,17 @@ jobs:
 
     - name: Decode Okta private key
       run: |
-        echo "${{ secrets.OKTA_PRIVATE_KEY_B64 }}" | base64 -d > okta.key
+        printf "%s" "${{ secrets.OKTA_PRIVATE_KEY_B64 }}" | base64 --decode > okta.key
 
-        # quick verification (safe): show only first and last line
         echo "First line:" && head -n 1 okta.key
         echo "Last line:" && tail -n 1 okta.key
 
-        echo "TF_VAR_okta_private_key<<EOF" >> $GITHUB_ENV
-        cat okta.key >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        {
+          echo "TF_VAR_okta_private_key<<EOF"
+          cat okta.key
+          echo "EOF"
+        } >> "$GITHUB_ENV"
+
 
 
     - name: Setup Terraform 
