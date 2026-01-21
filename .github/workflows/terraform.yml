@@ -11,11 +11,11 @@ jobs:
   runs-on: ubuntu-latest 
   environment: production 
   env:
-  TF_VAR_okta_org_name: ${{ secrets.OKTA_ORG_NAME }}
-  TF_VAR_okta_base_url: ${{ secrets.OKTA_BASE_URL }}
-  TF_VAR_okta_client_id: ${{ secrets.OKTA_CLIENT_ID }}
-  TF_VAR_okta_private_key_id: ${{ secrets.OKTA_PRIVATE_KEY_ID }}
-  TF_VAR_okta_scopes: ${{ secrets.OKTA_SCOPES }}
+    TF_VAR_okta_org_name: ${{ secrets.OKTA_ORG_NAME }}
+    TF_VAR_okta_base_url: ${{ secrets.OKTA_BASE_URL }}
+    TF_VAR_okta_client_id: ${{ secrets.OKTA_CLIENT_ID }}
+    TF_VAR_okta_private_key_id: ${{ secrets.OKTA_PRIVATE_KEY_ID }}
+    TF_VAR_okta_scopes: ${{ secrets.OKTA_SCOPES }}
 
 steps:
   - name: Checkout
