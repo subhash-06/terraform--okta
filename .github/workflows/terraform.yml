@@ -10,13 +10,14 @@ jobs:
   name: Terraform 
   runs-on: ubuntu-latest 
   environment: production 
-  env: 
-    OKTA_ORG_NAME: ${{ secrets.OKTA_ORG_NAME }} 
-    OKTA_BASE_URL: ${{ secrets.OKTA_BASE_URL }} 
-    OKTA_CLIENT_ID: ${{ secrets.OKTA_CLIENT_ID }} 
-    OKTA_PRIVATE_KEY_ID: ${{ secrets.OKTA_PRIVATE_KEY_ID }} 
-    OKTA_PRIVATE_KEY: ${{ secrets.OKTA_PRIVATE_KEY }} 
-    OKTA_SCOPES: ${{ secrets.OKTA_SCOPES }} 
+  env:
+    TF_VAR_okta_org_name: ${{ secrets.OKTA_ORG_NAME }}
+    TF_VAR_okta_base_url: ${{ secrets.OKTA_BASE_URL }}
+    TF_VAR_okta_client_id: ${{ secrets.OKTA_CLIENT_ID }}
+    TF_VAR_okta_private_key_id: ${{ secrets.OKTA_PRIVATE_KEY_ID }}
+    TF_VAR_okta_private_key: ${{ secrets.OKTA_PRIVATE_KEY }}
+    TF_VAR_okta_scopes: ${{ secrets.OKTA_SCOPES }}
+
   defaults: 
     run: 
       shell: bash 
