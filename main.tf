@@ -21,6 +21,6 @@ resource "okta_group" "groups" {
 
 resource "okta_app_group_assignment" "terraform" {
   app_id   = okta_app_oauth.terraform-okta-create.id
-  group_id = okta_group.terraform-okta-group-create.id
+  group_id = okta_group.groups.id
   
 }
