@@ -14,6 +14,7 @@ jobs:
     environment: production
 
     env:
+      TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
       TF_VAR_okta_org_name: ${{ secrets.OKTA_ORG_NAME }}
       TF_VAR_okta_base_url: ${{ secrets.OKTA_BASE_URL }}
       TF_VAR_okta_api_token: ${{ secrets.OKTA_API_TOKEN }}
