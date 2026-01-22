@@ -24,7 +24,10 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-
+      - name: Terraform Login (Terraform Cloud)
+        run: |
+          echo "Terraform Cloud token detected"
+          terraform version
       - name: Terraform Init
         run: terraform init -upgrade
 
