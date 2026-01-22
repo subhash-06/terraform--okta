@@ -1,11 +1,20 @@
 terraform {
+  backend "remote" {
+    organization = "subhashee"
+
+    workspaces {
+      name = "okta"
+    }
+  }
+
   required_providers {
     okta = {
       source  = "okta/okta"
-      version = "6.5.4"
+      version = "~> 6.5.4"
     }
   }
 }
+
 
 provider "okta" {
   org_name  = var.okta_org_name
